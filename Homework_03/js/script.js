@@ -117,11 +117,7 @@ console.log('Исходный массив - ' + arrayForCompact);
 function compact(array) {
     var newArray = [];
     for (var i = 0; i < array.length; i++) {
-        if (array[i] !== false &&
-            array[i] !== undefined &&
-            array[i] !== "" &&
-            array[i] !== 0 &&
-            array[i] !== null) {
+        if (array[i]) {
             newArray.push(array[i]);
         }
     }
@@ -163,27 +159,41 @@ console.log('');
 console.log('Task_2e');
 
 console.log('Исходные массивы')
-var arrayOne = [1, 2, 3, 8, 3, 4, 'c', 5, 5];
+var arrayOne = [1, 2, 3, 8, 'd', 3, 'a', 4, 'c', 5, 9];
 console.log(arrayOne);
-var arrayTwo = ['a', 'b', 'c', 'd', 3, 'd'];
+var arrayTwo = ['a', 2, 'b', 'c', 'd', 3, 'd'];
 console.log(arrayTwo);
 
-function intersection(arrayOne, arrayTwo) {
-    var setOne = new Set(arrayOne);//создаем список уникальных значений из arrayOne
-    var setTwo = new Set(arrayTwo);//создаем список уникальных значений из arrayTwo
+function intersection(array1, array2) {
+    var bigArray;
+    var smallArray;
 
-    //создаем из сета setOne массив newArray
-    //который будем потом дополнять и получим итоговый
-    var newArray = Array.from(setOne);
-    //создаем временный массив из setTwo
-    //чтобы потом его элементы поочередно добавить в массив newArray
-    var temp = Array.from(setTwo);
-    //циклом добавляем поочередно элементы массива temp в newArray
-    for (var i = 0; i < temp.length; i++) {
-        newArray.push(temp[i]);
+    if (array1.length >= array2.length) {
+        var outerLength = array1.length;
+        var innerLength = array2.length;
+        bigArray = array1;
+        smallArray = array2;
+    } else {
+        var outerLength = array2.length;
+        var innerLength = array1.length;
+        bigArray = array2;
+        smallArray = array1;
     }
-    //newArray может содержать повторяющиеся элементы.
-    //поэтому преобразовываем его снова в set и обратно
+
+    console.log(outerLength, innerLength, smallArray)
+
+    var newArray = [];
+
+    for (var i = 0; i < outerLength; i++) {
+        var currentItem = bigArray[i];
+
+        for (var j = 0; j < innerLength; j++) {
+            if (currentItem === smallArray[j]) {
+                newArray.push(currentItem);
+            }
+        }
+    }
+
     newArray = new Set(newArray);
     newArray = Array.from(newArray);
 
