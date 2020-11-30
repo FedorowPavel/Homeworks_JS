@@ -154,6 +154,8 @@ function isEqual(array1, array2) {
 
 isEqual(arrayOne, arrayTwo);
 
+
+
 //next task
 console.log('');
 console.log('Task_2e');
@@ -162,80 +164,6 @@ console.log('Исходные массивы')
 var arrayOne = [1, 2, 3, 8, 'd', 3, 'a', 4, 'c', 5, 9];
 console.log(arrayOne);
 var arrayTwo = ['a', 2, 'b', 'c', 'd', 3, 'd'];
-console.log(arrayTwo);
-
-function intersection(array1, array2) {
-    var bigArray;
-    var smallArray;
-
-    if (array1.length >= array2.length) {
-        var outerLength = array1.length;
-        var innerLength = array2.length;
-        bigArray = array1;
-        smallArray = array2;
-    } else {
-        var outerLength = array2.length;
-        var innerLength = array1.length;
-        bigArray = array2;
-        smallArray = array1;
-    }
-
-    console.log(outerLength, innerLength, smallArray)
-
-    var newArray = [];
-
-    for (var i = 0; i < outerLength; i++) {
-        var currentItem = bigArray[i];
-
-        for (var j = 0; j < innerLength; j++) {
-            if (currentItem === smallArray[j]) {
-                newArray.push(currentItem);
-            }
-        }
-    }
-
-    newArray = new Set(newArray);
-    newArray = Array.from(newArray);
-
-    return newArray;
-}
-
-console.log('Итоговый массив - ' + intersection(arrayOne, arrayTwo));
-
-
-
-//next task
-console.log('');
-console.log('Task_2e_второй вариант');
-
-console.log('Исходные массивы')
-var arrayOne = [1, 2, 3, 8, 'd', 3, 'a', 4, 'c', 5, 9];
-console.log(arrayOne);
-var arrayTwo = ['a', 2, 'b', 'c', 'd', 3, 'd'];
-console.log(arrayTwo);
-
-function intersection(array1, array2) {
-
-    var newArray = array1.concat(array2);
-
-    newArray = new Set(newArray);
-    newArray = Array.from(newArray);
-
-    return newArray;
-}
-
-
-console.log('Итоговый массив - ' + intersection(arrayOne, arrayTwo));
-
-
-//next task
-console.log('');
-console.log('Task_2e_третий вариант');
-
-console.log('Исходные массивы')
-var arrayTwo = [1, 2, 3, 8, 'd', 3, 'a', 4, 'c', 5, 9];
-console.log(arrayOne);
-var arrayOne = ['a', 2, 'b', 'c', 'd', 3, 'd'];
 console.log(arrayTwo);
 
 function intersection(array1, array2) {
@@ -258,4 +186,80 @@ function intersection(array1, array2) {
 }
 
 console.log('Итоговый массив - ' + intersection(arrayOne, arrayTwo));
+
+// //next task
+// console.log('');
+// console.log('Task_2e');
+
+// console.log('Исходные массивы')
+// var arrayOne = [1, 2, 3, 8, 'd', 3, 'a', 4, 'c', 5, 9];
+// console.log(arrayOne);
+// var arrayTwo = ['a', 2, 'b', 'c', 'd', 3, 'd'];
+// console.log(arrayTwo);
+
+// function intersection(array1, array2) {
+//     var bigArray;
+//     var smallArray;
+
+//     if (array1.length >= array2.length) {
+//         var outerLength = array1.length;
+//         var innerLength = array2.length;
+//         bigArray = array1;
+//         smallArray = array2;
+//     } else {
+//         var outerLength = array2.length;
+//         var innerLength = array1.length;
+//         bigArray = array2;
+//         smallArray = array1;
+//     }
+
+//     console.log(outerLength, innerLength, smallArray)
+
+//     var newArray = [];
+
+//     for (var i = 0; i < outerLength; i++) {
+//         var currentItem = bigArray[i];
+
+//         for (var j = 0; j < innerLength; j++) {
+//             if (currentItem === smallArray[j]) {
+//                 newArray.push(currentItem);
+//             }
+//         }
+//     }
+
+//     newArray = new Set(newArray);
+//     newArray = Array.from(newArray);
+
+//     return newArray;
+// }
+
+// console.log('Итоговый массив - ' + intersection(arrayOne, arrayTwo));
+
+
+
+// //next task
+// console.log('');
+// console.log('Task_2e_второй вариант');
+
+// console.log('Исходные массивы')
+// var arrayOne = [1, 2, 3, 8, 'd', 3, 'a', 4, 'c', 5, 9];
+// console.log(arrayOne);
+// var arrayTwo = ['a', 2, 'b', 'c', 'd', 3, 'd'];
+// console.log(arrayTwo);
+
+// function intersection(array1, array2) {
+
+//     var newArray = array1.concat(array2);
+
+//     newArray = new Set(newArray);
+//     newArray = Array.from(newArray);
+
+//     return newArray;
+// }
+
+
+// console.log('Итоговый массив - ' + intersection(arrayOne, arrayTwo));
+
+
+
 
