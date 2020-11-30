@@ -204,3 +204,27 @@ console.log('Итоговый массив - ' + intersection(arrayOne, arrayTwo
 
 
 
+//next task
+console.log('');
+console.log('Task_2e_второй вариант');
+
+console.log('Исходные массивы')
+var arrayOne = [1, 2, 3, 8, 'd', 3, 'a', 4, 'c', 5, 9];
+console.log(arrayOne);
+var arrayTwo = ['a', 2, 'b', 'c', 'd', 3, 'd'];
+console.log(arrayTwo);
+
+function intersection(array1, array2) {
+
+    var newArray = array1.concat(array2);
+
+    newArray = new Set(newArray);
+    newArray = Array.from(newArray);
+
+    return newArray;
+}
+
+
+console.log('Итоговый массив - ' + intersection(arrayOne, arrayTwo));
+
+
