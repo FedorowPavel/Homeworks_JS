@@ -228,3 +228,34 @@ function intersection(array1, array2) {
 console.log('Итоговый массив - ' + intersection(arrayOne, arrayTwo));
 
 
+//next task
+console.log('');
+console.log('Task_2e_третий вариант');
+
+console.log('Исходные массивы')
+var arrayTwo = [1, 2, 3, 8, 'd', 3, 'a', 4, 'c', 5, 9];
+console.log(arrayOne);
+var arrayOne = ['a', 2, 'b', 'c', 'd', 3, 'd'];
+console.log(arrayTwo);
+
+function intersection(array1, array2) {
+    var newArray = [];
+
+    for (var i = 0; i < array1.length; i++) {
+        var currentItem = array1[i];
+
+        for (var j = 0; j < array2.length; j++) {
+            if (currentItem === array2[j]) {
+                newArray.push(currentItem);
+            }
+        }
+    }
+
+    newArray = new Set(newArray);
+    newArray = Array.from(newArray);
+
+    return newArray;
+}
+
+console.log('Итоговый массив - ' + intersection(arrayOne, arrayTwo));
+
