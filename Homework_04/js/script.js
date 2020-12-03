@@ -22,6 +22,19 @@ console.log(search(stringOne, stringTwo))
 
 
 
+//задание 1
+console.log('');
+console.log('Task_1_второй вариант');
+
+var stringOne = "Hello, world, Hello, world, Hello, world, Hello";
+var stringTwo = "ll";
+
+function search(str1, str2) {
+    var result = str1.split(str2).length;
+    return result;
+}
+
+console.log(search(stringOne, stringTwo))
 
 
 
