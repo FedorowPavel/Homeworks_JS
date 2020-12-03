@@ -3,15 +3,14 @@ console.log('');
 console.log('Task_1');
 
 var stringOne = "Hello, world, Hello, world, Hello, world, Hello";
-var stringTwo = "d, ";
+var stringTwo = "ll";
 
 function search(str1, str2) {
     var counter = 0;
 
     for (var i = 0; i < str1.length; i++) {
-        var tempStr = str1.substr(i, str2.length);
 
-        if (tempStr === str2) {
+        if (str1.substr(i, str2.length) === str2) {
             counter++;
         }
     }
@@ -71,10 +70,10 @@ console.log('');
 console.log('Task_3');
 
 var strOne = "Hello, world!";
-var strTwo = "ld!";
+var strTwo = "rld!";
 
 function checkIfEnds(str1, str2) {
-    return strOne.substring((str1.length - str2.length), str1.length) === str2;
+    return strOne.substring(str1.length - str2.length) === str2;
 }
 
 console.log(checkIfEnds(strOne, strTwo));
