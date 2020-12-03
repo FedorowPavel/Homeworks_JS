@@ -27,11 +27,11 @@ console.log('');
 console.log('Task_1_второй вариант');
 
 var stringOne = "Hello, world, Hello, world, Hello, world, Hello";
-var stringTwo = "ll";
+var stringTwo = "w";
 
 function search(str1, str2) {
-    var result = str1.split(str2).length;
-    return result;
+    return str1.split(str2).length - 1;
+
 }
 
 console.log(search(stringOne, stringTwo))
