@@ -66,29 +66,78 @@ class GameOfWords {
 
     constructor() {
         this.words = [];
-        this.gameOver;
+        this.gameOver = 'false';
     }
 
     play(word) {
-        //случай для первого вызова метода play
-        //просто копирем первое слово в список слов
+        //проверяем одно ли слово в строке 
+        //проверяем не пустая ли строка введена
+        if (word.trim().split(' ').length > 1 || word.trim() === '') {
+            return 'введите одно слово';
+        };
 
-        if (this.words.length === 0) {
-            return [...this.words, word];
+        //проверяем совпадает ли последняя буква последнего слова с первой буквой нового слова
+        //если нет то игра окончена
+        if (this.words.join().slice(-1) !== word.trim().toUpperCase()[0] &&
+            this.words.length !== 0) {
+            // this.words = [];
+            this.gameOver = 'true';
+            return `Game Over - слово ${word} начинается не на ту букву `;
         }
 
+        //проверяем не повторяется ли в существующих словах
+        if (this.words.join().includes(word.trim().toUpperCase())) {
+            // this.words = [];
+            this.gameOver = 'true';
+            return `Game Over - ${word.trim().toUpperCase()} уже имеется`;
+        }
+
+
+        // word.trim() --убираем пробелы в начале и конце слова
+        //и переводим в верхний регистр добавленное слово
+        return this.words = [...this.words, word.trim().toUpperCase()];
     }
 
     restart() {
-
+        this.words = [];
+        return 'Game restarted';
     }
 }
 
 const game = new GameOfWords();
 
-console.log(game);
 
-console.log(game.play('ball'));
-// console.log(game);
-console.log(game.play('wall'));
-// console.log(game);
+// console.log(game.play('roor df'));
+// console.log(game.play(' '));
+// console.log(game.play('dog cat'));
+
+console.log(game.play('  ball  '));
+console.log(game.play('lord'));
+console.log(game.play('dood  '));
+console.log(game.play(' dood'));
+console.log(game.words);
+
+console.log(game.play('  ball  '));
+console.log(game.play('lord'));
+console.log(game.play('dood  '));
+console.log(game.play('doctor'));
+console.log(game.play('kick'));
+
+console.log(game.restart());
+console.log(game.words);
+
+console.log(game.play('apple'));
+console.log(game.play('ear'));
+console.log(game.play('rhino'));
+console.log(game.play('corn'));
+console.log(game.words);
+
+console.log(game.restart());
+console.log(game.words);
+
+console.log(game.play('hostess'));
+console.log(game.play('stash'));
+console.log(game.play('hostess'));
+
+
+
