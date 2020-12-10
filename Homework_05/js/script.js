@@ -64,10 +64,16 @@ class GameOfWords {
 
     constructor() {
         this.words = [];
-        this.gameOver = 'false';
+        this.gameOver = false;
     }
 
     play(word) {
+        //сперва провряем состояние this.gameOver
+        //если true то не можем играть
+        if (this.gameOver) {
+            return `Game Over`;
+        }
+
         //проверяем одно ли слово в строке 
         //проверяем не пустая ли строка введена
         if (word.trim().split(' ').length > 1 || word.trim() === '') {
@@ -79,17 +85,16 @@ class GameOfWords {
         if (this.words.join().slice(-1) !== word.trim().toUpperCase()[0] &&
             this.words.length !== 0) {
             // this.words = [];
-            this.gameOver = 'true';
+            this.gameOver = true;
             return `Game Over - слово ${word} начинается не на ту букву `;
         }
 
         //проверяем не повторяется ли в существующих словах
         if (this.words.join().includes(word.trim().toUpperCase())) {
             // this.words = [];
-            this.gameOver = 'true';
+            this.gameOver = true;
             return `Game Over - ${word.trim().toUpperCase()} уже имеется`;
         }
-
 
         // word.trim() --убираем пробелы в начале и конце слова
         //и переводим в верхний регистр добавленное слово
@@ -98,6 +103,7 @@ class GameOfWords {
 
     restart() {
         this.words = [];
+        this.gameOver = false;
         return 'Game restarted';
     }
 }
@@ -120,9 +126,11 @@ const game = new GameOfWords();
 // console.log(game.restart());
 // console.log(game.words);
 
+console.log(game.play('apple apple'));
 console.log(game.play('apple'));
 console.log(game.play('ear'));
 console.log(game.play('rhino'));
+console.log(game.play('corn'));
 console.log(game.play('corn'));
 console.log(game.words);
 
@@ -132,6 +140,7 @@ console.log(game.words);
 console.log(game.play('hostess'));
 console.log(game.play('stash'));
 console.log(game.play('hostess'));
+console.log(game.play('apple'));
 
 
 console.log('');
