@@ -36,12 +36,10 @@ class Smoothie {
         }
         //копируем во временный массив весь исходный массив
         //чтобы избежать мутирования начального массива
-        const tempIngredients = [...this.ingredients];
+        const reverseSortedIngredients = [...this.ingredients].sort().reverse();
         //сортируем массив по алфавиту
-        const sortIngredients = tempIngredients.sort();
         //делаем реверс сортированного массива
         //так как редьюс идет с конца
-        const reverseSortedIngredients = sortIngredients.reverse();
         const name = reverseSortedIngredients.reduce(function (result, curr) {
             return `${curr} ${result}`;
         }, `Fusion`)
@@ -107,24 +105,20 @@ class GameOfWords {
 const game = new GameOfWords();
 
 
-// console.log(game.play('roor df'));
-// console.log(game.play(' '));
-// console.log(game.play('dog cat'));
+// console.log(game.play('  ball  '));
+// console.log(game.play('lord'));
+// console.log(game.play('dood  '));
+// console.log(game.play(' dood'));
+// console.log(game.words);
 
-console.log(game.play('  ball  '));
-console.log(game.play('lord'));
-console.log(game.play('dood  '));
-console.log(game.play(' dood'));
-console.log(game.words);
+// console.log(game.play('  ball  '));
+// console.log(game.play('lord'));
+// console.log(game.play('dood  '));
+// console.log(game.play('doctor'));
+// console.log(game.play('kick'));
 
-console.log(game.play('  ball  '));
-console.log(game.play('lord'));
-console.log(game.play('dood  '));
-console.log(game.play('doctor'));
-console.log(game.play('kick'));
-
-console.log(game.restart());
-console.log(game.words);
+// console.log(game.restart());
+// console.log(game.words);
 
 console.log(game.play('apple'));
 console.log(game.play('ear'));
@@ -140,4 +134,47 @@ console.log(game.play('stash'));
 console.log(game.play('hostess'));
 
 
+console.log('');
+console.log('Task_03');
 
+
+class Console {
+    constructor() {
+        this.consoleHistory = [];
+    }
+
+    myLog(value) {
+        this.consoleHistory = [...this.consoleHistory, String(value)];
+        return `\"${String(value)}\"`;
+    }
+
+    history(from, to) {
+        const logHistory = this.consoleHistory.slice(from, to).reduce(function (result, curr) {
+            return `${result}\n${curr}`
+        });
+        return `Console history:\n${logHistory}`;
+    }
+
+    clearHistory() {
+        return `History is empty ${this.consoleHistory = []}`;
+    }
+}
+
+const myConsole = new Console();
+
+console.log(myConsole.myLog([1, 2, 3, 4]));
+console.log(myConsole.myLog(1));
+console.log(myConsole.myLog("dog"));
+console.log(myConsole.myLog(true));
+console.log(myConsole.myLog("dog"));
+console.log(myConsole.consoleHistory);
+console.log(myConsole.history(0, 3));
+console.log(myConsole.history(2));
+console.log(myConsole.consoleHistory);
+console.log(myConsole.clearHistory());
+console.log(myConsole.consoleHistory);
+
+console.log(myConsole.myLog([1, 2, 3, 4]));
+console.log(myConsole.myLog("ok : ", function () { return "hello world !" }));
+console.log(myConsole.history());
+console.log(myConsole.consoleHistory);
