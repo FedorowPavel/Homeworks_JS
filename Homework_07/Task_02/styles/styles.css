@@ -3,9 +3,9 @@
     margin: 0;
     padding: 0;
 }
-/* body {
-    font-size: 20px;
-} */
+body {
+    padding: 10px;
+}
 
 h1.main{
     margin: 20px;
@@ -18,7 +18,7 @@ ul {
 }
 #content__task3 ul {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, 400px);
     grid-gap: 10px 10px;
 }
 #content__task3 ul li {
