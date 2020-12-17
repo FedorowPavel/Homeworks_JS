@@ -3,32 +3,6 @@ console.log('homework_07_task_02')
 //task 1
 console.log('\ntask 2.1')
 
-//изначально не правильно сделал задание создал массив в виде 
-// [
-//     { Chris: 'teacher' },
-//     { Joanna: 'Student' },
-//     { Boris: 'Prime Minister' },
-// ]
-
-// function exerciseOne(arrayOfPeople) {
-//     const content = document.querySelector("#content");
-
-//     arrayOfPeople.forEach((item) => {
-//         for (let key in item) {
-
-//             let newH1 = document.createElement('H1');
-//             newH1.textContent = `Name - ${key}`;
-//             content.appendChild(newH1);
-
-//             let newH2 = document.createElement('H2');
-//             newH2.textContent = `Job - ${item[key]}`;
-//             content.appendChild(newH2);
-//         }
-//         console.log(item);
-//     })
-//     console.log(content);
-// }
-
 const people = [
     { name: "Chris", job: "Teacher" },
     { name: "Joanna", job: "Student" },
@@ -42,20 +16,14 @@ function exerciseOne(arrayOfPeople) {
     const content = document.querySelector("#content__task1");
 
     arrayOfPeople.forEach((item) => {
-        for (let key in item) {
-            if (key === 'name') {
-                const newH1 = document.createElement('H1');
-                newH1.textContent = `Name - ${item[key]}`;
-                content.appendChild(newH1);
-            }
-            if (key === 'job') {
-                const newH2 = document.createElement('H2');
-                newH2.textContent = `Job - ${item[key]}`;
-                content.appendChild(newH2);
-            }
-        }
+        const newH1 = document.createElement('H1');
+        newH1.textContent = `Name - ${item.name}`;
+        content.appendChild(newH1);
+
+        const newH2 = document.createElement('H2');
+        newH2.textContent = `Job - ${item.job}`;
+        content.appendChild(newH2);
     })
-    console.log(content);
 }
 
 exerciseOne(people);
@@ -76,7 +44,7 @@ function exerciseTwo(shoppingList) {
         const newListItem = document.createElement('li');
         newListItem.textContent = item;
         newList.appendChild(newListItem);
-        console.log(newListItem);
+        // console.log(newListItem);
     })
 }
 
@@ -124,40 +92,27 @@ function exerciseThree(listOfBooks) {
         const bookInfo = document.createElement('p');
         singleBook.appendChild(bookInfo);
 
-        for (let key in item) {
+        // создаем  span для название книги
+        const titleSpan = document.createElement('span');
+        bookInfo.appendChild(titleSpan);
+        //добавляем в span текст названия книги
+        titleSpan.textContent = item.title;
 
-            if (key === 'title') {
-                //получаем название книги
-                const bookTittle = item[key];
-                //создаем для него span
-                const titleSpan = document.createElement('span');
-                bookInfo.appendChild(titleSpan);
-                //добавляем в span текст названия книги
-                titleSpan.textContent = bookTittle;
-                console.log(bookTittle);
+        //создаем span для автора книги
+        const authorSpan = document.createElement('span');
+        bookInfo.appendChild(authorSpan);
+        //добавляем в span текст с автором
+        authorSpan.textContent = ` - ${item.author}`;
 
-                //добавляем картинку в соостветвии с названием
-                const img = document.createElement('IMG');
-                img.src = `../images/${item[key]}.jpg`;
-                singleBook.appendChild(img);
+        //добавляем картинку в соостветвии с названием
+        const img = document.createElement('IMG');
+        img.src = `../images/${item.title}.jpg`;
+        singleBook.appendChild(img);
 
-            }
-            if (key === 'author') {
-                //получаем название книги
-                const bookAuthor = item[key];
-                //создаем для него span
-                const titleSpan = document.createElement('span');
-                bookInfo.appendChild(titleSpan);
-                //добавляем в span текст названия книги
-                titleSpan.textContent = ` - ${bookAuthor}`;
-                console.log(bookAuthor);
-            }
-            if (item[key] === true) {
-                singleBook.style.backgroundColor = 'green';
-            }
-            if (item[key] === false) {
-                singleBook.style.backgroundColor = 'red';
-            }
+        if (item.alreadyRead) {
+            singleBook.style.backgroundColor = 'green';
+        } else {
+            singleBook.style.backgroundColor = 'red';
         }
     })
 

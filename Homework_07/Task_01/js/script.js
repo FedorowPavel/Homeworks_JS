@@ -54,8 +54,7 @@ textButton.addEventListener('click', () => {
 //HOMEWORK TASK
 
 const largeTextButton = document.getElementById('largerLinksBtn');
-const allButtons = document.querySelectorAll('.buttons a');
-console.log(allButtons);
+const allButtons = document.querySelectorAll('a');
 
 largeTextButton.addEventListener('click', () => {
     allButtons.forEach(item => item.style.fontSize = '1.5rem')
