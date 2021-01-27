@@ -6,6 +6,7 @@ function hasDigit(str) {
     const reg = /\d/;
     const result = reg.test(str);
     console.log(result)
+    return result;
 }
 
 hasDigit('afasdasd');
@@ -19,6 +20,8 @@ function findTime(str) {
     const reg = /\d{2}:\d{2}/;
     const result = str.match(reg);
     console.log(result[0])
+
+    return result[0]
 }
 
 findTime("Breakfast at 09:00 in the room 123:456")
@@ -29,17 +32,11 @@ console.log('task3')
 array = ['Color', 'Caw', 'Town', 'Bycicle']
 
 function filterArray(arr) {
-    const newArr = [];
+    // const newArr = [];
 
     const reg = /^C/;
 
-    arr.forEach(word => {
-        if (!reg.test(word)) {
-            newArr.push(word);
-        }
-    });
-
-    return newArr
+    return  arr.filter(word => !reg.test(word));
 }
 
 console.log(filterArray(array));
