@@ -5,7 +5,6 @@ console.log('task1')
 function hasDigit(str) {
     const reg = /\d/;
     const result = reg.test(str);
-    console.log(result)
     return result;
 }
 
@@ -19,8 +18,6 @@ console.log('task2')
 function findTime(str) {
     const reg = /\d{2}:\d{2}/;
     const result = str.match(reg);
-    console.log(result[0])
-
     return result[0]
 }
 
@@ -32,10 +29,7 @@ console.log('task3')
 array = ['Color', 'Caw', 'Town', 'Bycicle']
 
 function filterArray(arr) {
-    // const newArr = [];
-
     const reg = /^C/;
-
     return  arr.filter(word => !reg.test(word));
 }
 
@@ -44,11 +38,8 @@ console.log(filterArray(array));
 
 // 4
 function hasAC(str) {
-
     const reg = /a.*c/;
-
     return reg.test(str);
-    
 }
 
 console.log(hasAC('afdgdfhhfcdsfsdf'));
